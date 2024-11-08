@@ -21,7 +21,7 @@ public class Customer {
     private String address;
     private String phone;
 
-    private int totalLoyaltyPoints = 0; // Total accumulated points for reference
+    private int totalLoyaltyPoints = 0;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LoyaltyPoint> loyaltyPointsList = new ArrayList<>();
