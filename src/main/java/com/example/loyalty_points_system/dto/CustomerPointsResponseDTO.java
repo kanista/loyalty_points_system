@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CustomerPointsResponseDTO {
     private Long customerId;
+    private String name;
+    private String email;
+    private String phone;
     private int points;
     private String lastUpdated;
 }

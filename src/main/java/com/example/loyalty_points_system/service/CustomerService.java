@@ -78,7 +78,7 @@ public class CustomerService {
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new GlobalExceptionHandler.CustomerNotFoundException("Customer not found"));
         String lastUpdated = LocalDateTime.now().toString();
-        return new CustomerPointsResponseDTO(customer.getId(), customer.getTotalLoyaltyPoints(), lastUpdated);
+        return new CustomerPointsResponseDTO(customer.getId(),customer.getName(),customer.getEmail(),customer.getPhone(), customer.getTotalLoyaltyPoints(), lastUpdated);
     }
 
     public List<CustomerPointsResponseDTO> getAllCustomersWithPoints() {
@@ -94,6 +94,9 @@ public class CustomerService {
             String lastUpdated = LocalDateTime.now().toString();
             CustomerPointsResponseDTO dto = new CustomerPointsResponseDTO(
                     customer.getId(),
+                    customer.getName(),
+                    customer.getEmail(),
+                    customer.getPhone(),
                     customer.getTotalLoyaltyPoints(),
                     lastUpdated
             );
